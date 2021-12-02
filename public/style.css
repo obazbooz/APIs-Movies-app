@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#LOGO_SECTION_ID {
+  background-color: blue;
+}
+
+#ADS_SECTION_ID {
+  background-color: darkkhaki;
+}
