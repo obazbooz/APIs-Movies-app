@@ -7,21 +7,32 @@ const initializeApp = () => {
 
 export const DOMCreator = () => {
   //------------------Sections create --------------------
+  const landing = document.createElement('div');
   const logoSection = document.createElement('section');
   const movieSliderSection = document.createElement('section');
   const userPanelSection = document.createElement('section');
   const footerSection = document.createElement('section');
   //-----------------
-  logoSection.setAttribute('id', 'LOGO_SECTION_ID');
-  movieSliderSection.setAttribute('id', 'SLIDER_SECTION_ID');
-  userPanelSection.setAttribute('id', 'USER_PANEL_SECTION_ID');
-  footerSection.setAttribute('id', 'FOOTER_SECTION_ID');
+  landing.setAttribute('class', 'landingBanner');
+  logoSection.setAttribute('class', 'logoSection');
+  movieSliderSection.setAttribute('class', 'sliderSection');
+  userPanelSection.setAttribute('class', 'userPanelSection');
+  footerSection.setAttribute('class', 'footerSection');
   //-----------------
-  document.body.appendChild(logoSection);
-  document.body.appendChild(movieSliderSection);
+  //----------landing-image ------------
+  const landingImgBanner = document.createElement('div');
+  landingImgBanner.setAttribute('class', 'imageBanner');
+  landingImgBanner.textContent = 'test';
+  landing.appendChild(landingImgBanner);
+  //---------------------------
+  document.body.appendChild(landing);
+  landing.appendChild(logoSection);
+  landing.appendChild(movieSliderSection);
   document.body.appendChild(userPanelSection);
   document.body.appendChild(footerSection);
+
   //--------------------Logo-----------
+
   const logoImage = document.createElement('img');
   logoImage.src = '../public/imgs/MoviesApp.png';
   logoSection.appendChild(logoImage);
@@ -29,7 +40,7 @@ export const DOMCreator = () => {
   //-------------------Movies Slider---------------------
   const sliderContainer = document.createElement('div');
   const sliderTitle = document.createElement('h3');
-  sliderTitle.setAttribute('id', 'sliderTitleId');
+  sliderTitle.setAttribute('class', 'sliderTitle');
   sliderTitle.textContent = 'EXClUSIVE ON MOVIES APP';
   movieSliderSection.appendChild(sliderTitle);
   sliderContainer.setAttribute('class', 'slider');

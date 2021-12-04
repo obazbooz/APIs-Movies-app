@@ -1,9 +1,8 @@
 import { DOMCreator } from '../init/AppInit.js';
 const urlApi = 'http://www.omdbapi.com/?i=tt3896198&apikey=5f44eebe';
 
-function randomWordGenerator() {
-  var things = ['friends', 'Paper', 'Scissor'];
-  var thing = things[Math.floor(Math.random() * things.length)];
+function randomNumberGenerator(resultsSize) {
+  return Math.floor(Math.random() * resultsSize);
 }
 
 async function fetchMovies(url) {
