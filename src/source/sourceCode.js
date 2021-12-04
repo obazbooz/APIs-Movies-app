@@ -1,11 +1,11 @@
-import { DOMCreator } from '../init/AppInit.js';
+import { DomCreator } from '../init/AppInit.js';
 const urlApi = 'http://www.omdbapi.com/?i=tt3896198&apikey=5f44eebe';
 
 function randomNumberGenerator(resultsSize) {
   return Math.floor(Math.random() * resultsSize);
 }
 
-async function fetchMovies(url) {
+async function fetchMoviesData(url) {
   try {
     const response = await fetch(url);
     if (response.ok) {
@@ -17,8 +17,8 @@ async function fetchMovies(url) {
   }
 }
 
-async function populateAdsMovieImages(results) {
-  const randomMovieId = randomNumberGenerator(results.length);
+async function populateMoviesSliderImages(results) {
+  // const randomMovieId = randomNumberGenerator(results.length);
 
   const img1 = document.getElementById('imageOneId');
   const img2 = document.getElementById('imageTwoId');
@@ -31,6 +31,7 @@ async function populateAdsMovieImages(results) {
   img3.src = results[3].Poster;
   img4.src = results[4].Poster;
   img5.src = results[5].Poster;
+  autoSliderFunc();
 }
 
 function autoSliderFunc() {
@@ -43,13 +44,12 @@ function autoSliderFunc() {
     }
   }, 3000);
 }
-export async function main() {
+
+export async function DomManipulater() {
   try {
     const url = `${urlApi}&s=boys`;
-    const { Search } = await fetchMovies(url);
-    console.log(Search);
-    populateAdsMovieImages(Search);
-    autoSliderFunc();
+    const { Search } = await fetchMoviesData(url);
+    populateMoviesSliderImages(Search);
   } catch (error) {
     console.log(error);
   }

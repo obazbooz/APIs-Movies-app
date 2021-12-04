@@ -1,22 +1,21 @@
-import { main } from '../source/sourceCode.js';
+import { DomManipulater } from '../source/sourceCode.js';
 
 const initializeApp = () => {
-  DOMCreator();
-  main();
+  DomCreator();
+  DomUserPanelCreator();
+  DomManipulater();
 };
 
-export const DOMCreator = () => {
+export const DomCreator = () => {
   //------------------Sections create --------------------
   const landing = document.createElement('div');
   const logoSection = document.createElement('section');
   const movieSliderSection = document.createElement('section');
-  const userPanelSection = document.createElement('section');
   const footerSection = document.createElement('section');
   //-----------------
   landing.setAttribute('class', 'landingBanner');
   logoSection.setAttribute('class', 'logoSection');
   movieSliderSection.setAttribute('class', 'sliderSection');
-  userPanelSection.setAttribute('class', 'userPanelSection');
   footerSection.setAttribute('class', 'footerSection');
   //-----------------
   //----------landing-image ------------
@@ -28,7 +27,6 @@ export const DOMCreator = () => {
   document.body.appendChild(landing);
   landing.appendChild(logoSection);
   landing.appendChild(movieSliderSection);
-  document.body.appendChild(userPanelSection);
   document.body.appendChild(footerSection);
 
   //--------------------Logo-----------
@@ -163,6 +161,12 @@ export const DOMCreator = () => {
   manualNaviContainer.appendChild(label3);
   manualNaviContainer.appendChild(label4);
   manualNaviContainer.appendChild(label5);
+};
+
+const DomUserPanelCreator = () => {
+  const userPanelSection = document.createElement('section');
+  userPanelSection.setAttribute('class', 'userPanelSection');
+  document.body.appendChild(userPanelSection);
 };
 
 window.addEventListener('load', initializeApp);
