@@ -1,13 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --mainRedColor: #e50914;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-#LOGO_SECTION_ID {
-  background-color: blue;
+/*************** ADS styling section **********************/
+
+.imageBanner {
+  background: url('../public/imgs/netflixa.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 50rem;
+  filter: blur(8px);
+
+  /* position: absolute; */
 }
 
-#ADS_SECTION_ID {
-  background-color: darkkhaki;
+.logoSection {
+  /* background-color: black; */
+  padding: 20px;
+  position: absolute;
+  top: 0;
 }
+.sliderSection {
+  display: block;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: black; */
+  /* background: url('../public/imgs/netflixa.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -5;*/
+}
+
+.slider {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sliderTitle {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.slides {
+  width: 500%;
+  height: 500px;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.movieHolderClass {
+  width: 20%;
+  transition: 2s;
+}
+/* .movieHolderClass img {
+  width: 800px;
+  height: 500px;
+} */
+
+/* navigation styling */
+.naviMmanual {
+  position: absolute;
+  width: 300px;
+  margin-top: -100px;
+  display: flex;
+  justify-content: center;
+}
+
+.manualNaviBtn {
+  border: 2px solid var(--mainRedColor);
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manualNaviBtn:not(:last-child) {
+  margin-right: 40px;
+}
+
+.manualNaviBtn:hover {
+  background-color: var(--mainRedColor);
+}
+
+#radio1:checked ~ #first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ #first {
+  margin-left: -20%;
+}
+
+#radio3:checked ~ #first {
+  margin-left: -40%;
+}
+#radio4:checked ~ #first {
+  margin-left: -60%;
+}
+#radio5:checked ~ #first {
+  margin-left: -80%;
+}
+/* automatic navigation styling */
+
+.autoNaviContainer {
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin-top: 460px;
+}
+
+.autoNaviContainer div {
+  border: 2px solid blue;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.autoNaviContainer div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .autoNaviContainer .autoNavibtnOne {
+  background-color: red;
+}
+
+#radio2:checked ~ .autoNaviContainer .autoNavibtnTwo {
+  background-color: red;
+}
+
+#radio3:checked ~ .autoNaviContainer .autoNavibtnThree {
+  background-color: red;
+}
+
+#radio4:checked ~ .autoNaviContainer .autoNavibtnFour {
+  background-color: red;
+}
+
+#radio5:checked ~ .autoNaviContainer .autoNavibtnFive {
+  background-color: red;
+}
+
+/*************** End ADS styling section **********************/
