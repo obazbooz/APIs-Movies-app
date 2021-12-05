@@ -1,5 +1,5 @@
 import { DomCreator } from '../init/AppInit.js';
-const urlApi = 'http://www.omdbapi.com/?i=tt3896198&apikey=5f44eebe';
+import { DomUserPanelCreator } from '../init/AppInit.js';
 
 function randomNumberGenerator(resultsSize) {
   return Math.floor(Math.random() * resultsSize);
@@ -34,6 +34,53 @@ async function populateMoviesSliderImages(results) {
   autoSliderFunc();
 }
 
+async function fetchAndPopulateResults(url) {
+  try {
+    const inputElement = document.querySelector('.inputElement');
+    let searchTimeoutToken = 0;
+    inputElement.addEventListener('keyup', async (event) => {
+      clearTimeout(searchTimeoutToken);
+      searchTimeoutToken = setTimeout(async () => {
+        const inputURL = `${url}&s=${inputElement.value}`;
+        const responseData = await fetchMoviesData(inputURL);
+        if (responseData.Response === 'True') {
+          const { Search } = responseData;
+          movieRander(Search);
+        } else {
+          console.log('Too many results Type more');
+        }
+      }, 400);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function movieRander(Search) {
+  const resultContainer = document.querySelector('.resultsContainer');
+  resultContainer.innerHTML = '';
+  Search.forEach((element) => {
+    const resultMovieContainer = document.createElement('div');
+    resultMovieContainer.setAttribute('class', 'resultMovieContainer');
+    const moviePoster = document.createElement('img');
+    moviePoster.setAttribute('class', 'moviePoster');
+    moviePoster.src = element.Poster;
+    resultMovieContainer.appendChild(moviePoster);
+    const posterOverlay = document.createElement('div');
+    posterOverlay.setAttribute('class', 'posterOverlay');
+    resultMovieContainer.appendChild(posterOverlay);
+    const movieName = document.createElement('h4');
+    movieName.setAttribute('class', 'movieName');
+    movieName.innerText = element.Title;
+    const movieYear = document.createElement('p');
+    movieYear.setAttribute('class', 'movieYear');
+    movieYear.innerText = element.Year;
+    posterOverlay.appendChild(movieName);
+    posterOverlay.appendChild(movieYear);
+    resultContainer.appendChild(resultMovieContainer);
+  });
+}
+
 function autoSliderFunc() {
   let counter = 1;
   setInterval(() => {
@@ -47,9 +94,11 @@ function autoSliderFunc() {
 
 export async function DomManipulater() {
   try {
+    const urlApi = 'http://www.omdbapi.com/?i=tt3896198&apikey=5f44eebe';
     const url = `${urlApi}&s=boys`;
     const { Search } = await fetchMoviesData(url);
     populateMoviesSliderImages(Search);
+    fetchAndPopulateResults(urlApi);
   } catch (error) {
     console.log(error);
   }

@@ -3,6 +3,7 @@ import { DomManipulater } from '../source/sourceCode.js';
 const initializeApp = () => {
   DomCreator();
   DomUserPanelCreator();
+  DomFooterCreator();
   DomManipulater();
 };
 
@@ -11,12 +12,10 @@ export const DomCreator = () => {
   const landing = document.createElement('div');
   const logoSection = document.createElement('section');
   const movieSliderSection = document.createElement('section');
-  const footerSection = document.createElement('section');
   //-----------------
   landing.setAttribute('class', 'landingBanner');
   logoSection.setAttribute('class', 'logoSection');
   movieSliderSection.setAttribute('class', 'sliderSection');
-  footerSection.setAttribute('class', 'footerSection');
   //-----------------
   //----------landing-image ------------
   const landingImgBanner = document.createElement('div');
@@ -27,7 +26,6 @@ export const DomCreator = () => {
   document.body.appendChild(landing);
   landing.appendChild(logoSection);
   landing.appendChild(movieSliderSection);
-  document.body.appendChild(footerSection);
 
   //--------------------Logo-----------
 
@@ -163,10 +161,77 @@ export const DomCreator = () => {
   manualNaviContainer.appendChild(label5);
 };
 
-const DomUserPanelCreator = () => {
+export const DomUserPanelCreator = () => {
   const userPanelSection = document.createElement('section');
   userPanelSection.setAttribute('class', 'userPanelSection');
   document.body.appendChild(userPanelSection);
+  //*********************************************** */
+  const searchContainer = document.createElement('div');
+  searchContainer.setAttribute('class', 'searchContainer');
+  userPanelSection.appendChild(searchContainer);
+
+  const resultsContainer = document.createElement('div');
+  resultsContainer.setAttribute('class', 'resultsContainer');
+  userPanelSection.appendChild(resultsContainer);
+  //************************************************************ */
+  const searchTitle = document.createElement('div');
+  searchTitle.setAttribute('class', 'searchTitle');
+  const searchTitleHeader = document.createElement('h1');
+  searchTitleHeader.setAttribute('class', 'searchHeader');
+  searchTitleHeader.innerText = 'Unlimited movies to know about';
+  const searchTitleSubHeader = document.createElement('h2');
+  searchTitleSubHeader.setAttribute('class', 'searchSubHeader');
+  searchTitleSubHeader.innerText = 'Search for more movies';
+  searchTitle.appendChild(searchTitleHeader);
+  searchTitle.appendChild(searchTitleSubHeader);
+  searchContainer.appendChild(searchTitle);
+  //******************************************* */
+  const searchUserInput = document.createElement('div');
+  searchUserInput.setAttribute('class', 'searchUserInput');
+  searchContainer.appendChild(searchUserInput);
+
+  const inputElement = document.createElement('input');
+  inputElement.setAttribute('class', 'inputElement');
+  inputElement.placeholder = 'Search on movies';
+  searchUserInput.appendChild(inputElement);
+
+  // const showResultBtn = document.createElement('button');
+  // showResultBtn.setAttribute('class', 'showResultBtn');
+  // showResultBtn.textContent = 'Show movies';
+  // searchUserInput.appendChild(showResultBtn);
+};
+
+const DomFooterCreator = () => {
+  //****************************** */
+  const footerSection = document.createElement('section');
+  footerSection.setAttribute('class', 'footerSection');
+  document.body.appendChild(footerSection);
+  //******************************* */
+  const footerTop = document.createElement('p');
+  footerTop.setAttribute('class', 'footerTop');
+  footerTop.innerText = 'Questions?';
+  const footerTopPhoneNum = document.createElement('a');
+  footerTopPhoneNum.setAttribute('class', 'footerPhoneNum');
+  footerTopPhoneNum.href = '0630677733';
+  footerTopPhoneNum.innerText = '0630677733';
+  footerTop.appendChild(footerTopPhoneNum);
+  //******************************************* */
+  const footerLinks = document.createElement('ul');
+  footerLinks.setAttribute('class', 'footerLinks');
+  //******************************************************* */
+  const languageSelectionContainer = document.createElement('div');
+  languageSelectionContainer.setAttribute(
+    'class',
+    'languageSelectionContainer',
+  );
+  //*************************************************** */
+  const footerCountry = document.createElement('p');
+  //************************************************* */
+  footerCountry.setAttribute('class', 'footerCountry');
+  footerSection.appendChild(footerTop);
+  footerSection.appendChild(footerLinks);
+  footerSection.appendChild(languageSelectionContainer);
+  footerSection.appendChild(footerCountry);
 };
 
 window.addEventListener('load', initializeApp);
