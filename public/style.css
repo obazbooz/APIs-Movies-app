@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --mainRedColor: #e50914;
+  --mainColor: #e50914;
+  --secondColor: #303030;
+  --thirdColor: #757575;
   --primeFontFamily: 'Rubik', sans-serif;
 }
 
@@ -12,7 +14,7 @@
 }
 
 body {
-  background: gray;
+  background: var(--secondColor);
 }
 
 /*************** ADS styling section **********************/
@@ -109,7 +111,7 @@ body {
 }
 
 .manualNaviBtn {
-  border: 2px solid var(--mainRedColor);
+  border: 2px solid var(--mainColor);
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
@@ -121,7 +123,7 @@ body {
 }
 
 .manualNaviBtn:hover {
-  background-color: var(--mainRedColor);
+  background-color: var(--mainColor);
 }
 
 #radio1:checked ~ #first {
@@ -163,23 +165,23 @@ body {
 }
 
 #radio1:checked ~ .autoNaviContainer .autoNavibtnOne {
-  background-color: var(--mainRedColor);
+  background-color: var(--mainColor);
 }
 
 #radio2:checked ~ .autoNaviContainer .autoNavibtnTwo {
-  background-color: var(--mainRedColor);
+  background-color: var(--mainColor);
 }
 
 #radio3:checked ~ .autoNaviContainer .autoNavibtnThree {
-  background-color: var(--mainRedColor);
+  background-color: var(--mainColor);
 }
 
 #radio4:checked ~ .autoNaviContainer .autoNavibtnFour {
-  background-color: var(--mainRedColor);
+  background-color: var(--mainColor);
 }
 
 #radio5:checked ~ .autoNaviContainer .autoNavibtnFive {
-  background-color: var(--mainRedColor);
+  background-color: var(--mainColor);
 }
 
 /*************** End ADS styling section **********************/
@@ -187,6 +189,7 @@ body {
 /* ************* Results Styling *************** */
 .userPanelSection {
   background-color: black;
+  margin-bottom: -0.6rem;
 }
 .searchTitle {
   color: white;
@@ -204,11 +207,13 @@ body {
   width: 79%;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-top: 10px; */
   font-weight: 600;
   font-size: 40px;
+  /* margin-bottom: 2rem; */
+  margin: 2rem auto;
 }
 .searchSubHeader {
   width: 40%;
@@ -249,7 +254,7 @@ body {
 .resultMovieContainer {
   position: relative;
   margin: 1%;
-  box-shadow: 0 0 25px -5px var(--mainRedColor);
+  box-shadow: 0 0 25px -5px var(--mainColor);
 }
 
 .resultMovieContainer img {
@@ -295,4 +300,48 @@ body {
 }
 
 .movieYear {
+}
+
+/* Footer styling */
+.footerSection {
+  background: black;
+  padding-top: 4rem;
+}
+
+.footerTop {
+  color: var(--thirdColor);
+  margin-bottom: 1.5rem;
+}
+.footerPhoneNum {
+  color: var(--thirdColor);
+  text-decoration: none;
+}
+.footerContent {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--primeFontFamily);
+  font-size: 1rem;
+  font-weight: 300;
+  background: black;
+}
+
+.footerLinksContainer {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.footerLink {
+  margin-right: 1.5rem;
+}
+
+.footerLink a {
+  text-decoration: none;
+  color: var(--thirdColor);
+}
+
+.footerCountry {
+  color: var(--thirdColor);
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }

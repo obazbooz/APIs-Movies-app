@@ -69,12 +69,16 @@ function movieRander(Search) {
     const posterOverlay = document.createElement('div');
     posterOverlay.setAttribute('class', 'posterOverlay');
     resultMovieContainer.appendChild(posterOverlay);
+    const playIcon = document.createElement('i');
+    playIcon.setAttribute('class', 'fa fa-play-circle-o');
+    playIcon.setAttribute('style', 'font-size:36px;');
     const movieName = document.createElement('h4');
     movieName.setAttribute('class', 'movieName');
     movieName.innerText = element.Title;
     const movieYear = document.createElement('p');
     movieYear.setAttribute('class', 'movieYear');
     movieYear.innerText = element.Year;
+    posterOverlay.appendChild(playIcon);
     posterOverlay.appendChild(movieName);
     posterOverlay.appendChild(movieYear);
     resultContainer.appendChild(resultMovieContainer);

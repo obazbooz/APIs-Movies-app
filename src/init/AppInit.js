@@ -206,18 +206,57 @@ const DomFooterCreator = () => {
   const footerSection = document.createElement('section');
   footerSection.setAttribute('class', 'footerSection');
   document.body.appendChild(footerSection);
+
+  const footerContent = document.createElement('div');
+  footerContent.setAttribute('class', 'footerContent');
+  footerSection.appendChild(footerContent);
   //******************************* */
   const footerTop = document.createElement('p');
   footerTop.setAttribute('class', 'footerTop');
-  footerTop.innerText = 'Questions?';
+  footerTop.innerText = 'Questions? Call';
   const footerTopPhoneNum = document.createElement('a');
   footerTopPhoneNum.setAttribute('class', 'footerPhoneNum');
   footerTopPhoneNum.href = '0630677733';
-  footerTopPhoneNum.innerText = '0630677733';
+  footerTopPhoneNum.innerText = ' 06306777**';
   footerTop.appendChild(footerTopPhoneNum);
   //******************************************* */
-  const footerLinks = document.createElement('ul');
-  footerLinks.setAttribute('class', 'footerLinks');
+  const footerLinksContainer = document.createElement('ul');
+  footerLinksContainer.setAttribute('class', 'footerLinksContainer');
+  for (let i = 0; i < 6; i++) {
+    const footerLink = document.createElement('li');
+    footerLink.setAttribute('class', 'footerLink');
+    const linkAnchor = document.createElement('a');
+    linkAnchor.setAttribute('class', 'linkAnchor');
+    footerLink.appendChild(linkAnchor);
+    footerLinksContainer.appendChild(footerLink);
+    switch (i) {
+      case 0:
+        linkAnchor.href = '#';
+        linkAnchor.innerText = 'FAQ';
+        break;
+      case 1:
+        linkAnchor.href = '#';
+        linkAnchor.innerText = 'Only on MOVIES APP';
+        break;
+      case 2:
+        linkAnchor.href = '#';
+        linkAnchor.innerText = 'Help Centre';
+        break;
+      case 3:
+        linkAnchor.href = '#';
+        linkAnchor.innerText = 'Terms of Use';
+        break;
+      case 4:
+        linkAnchor.href = '#';
+        linkAnchor.innerText = 'FAQ';
+        break;
+      case 5:
+        linkAnchor.href = '#';
+        linkAnchor.innerText = 'Contact Us';
+        break;
+    }
+  }
+
   //******************************************************* */
   const languageSelectionContainer = document.createElement('div');
   languageSelectionContainer.setAttribute(
@@ -226,12 +265,13 @@ const DomFooterCreator = () => {
   );
   //*************************************************** */
   const footerCountry = document.createElement('p');
-  //************************************************* */
   footerCountry.setAttribute('class', 'footerCountry');
-  footerSection.appendChild(footerTop);
-  footerSection.appendChild(footerLinks);
-  footerSection.appendChild(languageSelectionContainer);
-  footerSection.appendChild(footerCountry);
+  footerCountry.innerText = 'MOVIES APP Netherlands';
+  //************************************************* */
+  footerContent.appendChild(footerTop);
+  footerContent.appendChild(footerLinksContainer);
+  footerContent.appendChild(languageSelectionContainer);
+  footerContent.appendChild(footerCountry);
 };
 
 window.addEventListener('load', initializeApp);
