@@ -9,7 +9,7 @@ const initializeApp = () => {
 
 export const DomCreator = () => {
   //------------------Sections create --------------------
-  const landing = document.createElement('div');
+  const landing = document.createElement('section');
   const logoSection = document.createElement('section');
   const movieSliderSection = document.createElement('section');
   //-----------------
@@ -30,14 +30,23 @@ export const DomCreator = () => {
   //--------------------Logo-----------
 
   const logoImage = document.createElement('img');
+  const searchButton = document.createElement('button');
+  const buttonAnchor = document.createElement('a');
   logoImage.src = '../public/imgs/MoviesApp.png';
+  searchButton.setAttribute('class', 'btn btn-danger');
+  searchButton.setAttribute('type', 'button');
+  searchButton.innerText = 'Search';
+  buttonAnchor.href = '#SEARCH_USER_INPUT_ID';
+  searchButton.href = '#SEARCH_USER_INPUT_ID';
+  buttonAnchor.appendChild(searchButton);
   logoSection.appendChild(logoImage);
+  logoSection.appendChild(buttonAnchor);
 
   //-------------------Movies Slider---------------------
   const sliderContainer = document.createElement('div');
   const sliderTitle = document.createElement('h3');
   sliderTitle.setAttribute('class', 'sliderTitle');
-  sliderTitle.textContent = 'EXClUSIVE ON MOVIES APP';
+  sliderTitle.textContent = 'Exclusive on MOVIES APP';
   movieSliderSection.appendChild(sliderTitle);
   sliderContainer.setAttribute('class', 'slider');
   const slidesContainer = document.createElement('div');
@@ -188,10 +197,12 @@ export const DomUserPanelCreator = () => {
   //******************************************* */
   const searchUserInput = document.createElement('div');
   searchUserInput.setAttribute('class', 'searchUserInput');
+  searchUserInput.setAttribute('id', 'SEARCH_USER_INPUT_ID');
   searchContainer.appendChild(searchUserInput);
 
   const inputElement = document.createElement('input');
   inputElement.setAttribute('class', 'inputElement');
+  inputElement.setAttribute('id', 'INPUT_ID');
   inputElement.placeholder = 'Search on movies';
   searchUserInput.appendChild(inputElement);
 

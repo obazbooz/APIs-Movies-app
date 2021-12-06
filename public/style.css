@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --mainColor: #e50914;
+  --mainColor: #dc1a28;
   --secondColor: #303030;
   --thirdColor: #757575;
   --primeFontFamily: 'Rubik', sans-serif;
@@ -12,9 +12,11 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
-  background: var(--secondColor);
+  background-color: var(--secondColor);
 }
 
 /*************** ADS styling section **********************/
@@ -40,6 +42,15 @@ body {
 .logoSection img {
   width: 11.3rem;
   margin-left: 1rem;
+}
+
+.logoSection button {
+  position: absolute;
+  left: 75rem;
+  height: 30px;
+  width: 100px;
+  background-color: var(--mainColor);
+  color: white;
 }
 .sliderSection {
   display: block;
@@ -243,6 +254,7 @@ body {
   background-color: black;
   width: 100%;
   padding: 20px;
+  padding-bottom: 6rem;
   margin: 20px auto;
   display: flex;
   flex-flow: row wrap;
@@ -251,13 +263,13 @@ body {
   /* box-shadow: 0 0 10px 5px gray; */
 }
 
-.resultMovieContainer {
+.posterContainer {
   position: relative;
   margin: 1%;
   box-shadow: 0 0 25px -5px var(--mainColor);
 }
 
-.resultMovieContainer img {
+.posterContainer img {
   height: 30rem;
   width: 20rem;
   display: block;
@@ -299,9 +311,71 @@ body {
   font-weight: 500;
 }
 
-.movieYear {
+/* Selected image styling */
+#movieInfoContainer {
+  color: white;
+  position: relative;
+  height: fit-content;
+  width: 35%;
+  /* box-shadow: 0 0 25px -5px var(--mainColor); */
 }
 
+#movieInfoContainer div {
+  margin-bottom: 10px;
+}
+
+#movieInfoContainer h3 {
+  font-family: var(--primeFontFamily);
+  /* font-size: 1rem; */
+  font-weight: 500;
+  color: var(--mainColor);
+  font-size: 2rem;
+  margin-bottom: 5rem;
+}
+
+#movieInfoContainer h4 {
+  font-family: var(--primeFontFamily);
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline;
+}
+#movieInfoContainer label {
+  font-family: var(--primeFontFamily);
+  color: var(--thirdColor);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#movieInfoContainer p {
+  font-family: var(--primeFontFamily);
+  display: inline;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+#movieInfoContainer div label {
+  font-family: var(--primeFontFamily);
+}
+
+/* results not found styling */
+.notFoundContainer {
+  position: relative;
+}
+.searchNotFoundImage {
+  /* width: 10%; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 50px;
+  position: absolute;
+  left: 6rem;
+  top: -3rem;
+}
+.searchNotFoundTitle {
+  color: white;
+  font-family: var(--primeFontFamily);
+  /*width: 90%;
+  padding-left: 15rem; */
+}
 /* Footer styling */
 .footerSection {
   background: black;
