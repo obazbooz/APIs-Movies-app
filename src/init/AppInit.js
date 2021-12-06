@@ -32,7 +32,7 @@ export const DomCreator = () => {
   const logoImage = document.createElement('img');
   const searchButton = document.createElement('button');
   const buttonAnchor = document.createElement('a');
-  logoImage.src = '../public/imgs/MoviesApp.png';
+  logoImage.src = '../public/imgs/NETFOX.png';
   searchButton.setAttribute('class', 'btn btn-danger');
   searchButton.setAttribute('type', 'button');
   searchButton.innerText = 'Search';
@@ -46,7 +46,7 @@ export const DomCreator = () => {
   const sliderContainer = document.createElement('div');
   const sliderTitle = document.createElement('h3');
   sliderTitle.setAttribute('class', 'sliderTitle');
-  sliderTitle.textContent = 'Exclusive on MOVIES APP';
+  sliderTitle.textContent = 'Exclusive on NETFOX';
   movieSliderSection.appendChild(sliderTitle);
   sliderContainer.setAttribute('class', 'slider');
   const slidesContainer = document.createElement('div');
@@ -187,10 +187,11 @@ export const DomUserPanelCreator = () => {
   searchTitle.setAttribute('class', 'searchTitle');
   const searchTitleHeader = document.createElement('h1');
   searchTitleHeader.setAttribute('class', 'searchHeader');
-  searchTitleHeader.innerText = 'Unlimited movies to know about';
+  searchTitleHeader.innerText =
+    'Unlimited movies,series and games to know about';
   const searchTitleSubHeader = document.createElement('h2');
   searchTitleSubHeader.setAttribute('class', 'searchSubHeader');
-  searchTitleSubHeader.innerText = 'Search for more movies';
+  searchTitleSubHeader.innerText = 'Search your passion now';
   searchTitle.appendChild(searchTitleHeader);
   searchTitle.appendChild(searchTitleSubHeader);
   searchContainer.appendChild(searchTitle);
@@ -203,7 +204,7 @@ export const DomUserPanelCreator = () => {
   const inputElement = document.createElement('input');
   inputElement.setAttribute('class', 'inputElement');
   inputElement.setAttribute('id', 'INPUT_ID');
-  inputElement.placeholder = 'Search on movies';
+  inputElement.placeholder = 'Type your search here';
   searchUserInput.appendChild(inputElement);
 
   // const showResultBtn = document.createElement('button');
@@ -277,7 +278,7 @@ const DomFooterCreator = () => {
   //*************************************************** */
   const footerCountry = document.createElement('p');
   footerCountry.setAttribute('class', 'footerCountry');
-  footerCountry.innerText = 'MOVIES APP Netherlands';
+  footerCountry.innerText = 'NITFOX Netherlands';
   //************************************************* */
   footerContent.appendChild(footerTop);
   footerContent.appendChild(footerLinksContainer);
