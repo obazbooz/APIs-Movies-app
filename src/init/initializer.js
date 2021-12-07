@@ -35,7 +35,7 @@ export const DomLandingCreator = () => {
   const logoImage = document.createElement('img');
   const searchButton = document.createElement('button');
   const buttonAnchor = document.createElement('a');
-  logoImage.src = '../public/imgs/NETFOX.png';
+  logoImage.src = './public/imgs/NETFOX.png';
   searchButton.setAttribute('class', 'btn btn-danger');
   searchButton.setAttribute('type', 'button');
   searchButton.innerText = 'Search';

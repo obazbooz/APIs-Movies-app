@@ -96,7 +96,7 @@ async function movieRender(element, url) {
     if (element.Poster !== 'N/A') {
       chosenMoviePoster.src = element.Poster;
     } else {
-      chosenMoviePoster.src = '../public/imgs/keep-calm-poster-not-found.png';
+      chosenMoviePoster.src = './public/imgs/keep-calm-poster-not-found.png';
     }
     chosenMoviePoster.alt = 'Image not found!';
     chosenPosterContainer.appendChild(chosenMoviePoster);
