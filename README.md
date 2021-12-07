@@ -37,6 +37,8 @@ src
 └──constants.js
 index.html
 
+![Capture](https://user-images.githubusercontent.com/90429106/145100126-47caeaec-62d3-491e-b6d5-03d456d7c873.PNG)
+
 public: Contains the images and the styling file
 src: Contains the javascript code splits into set of subfolders as following:
 └── init: it contains initializer file which responsable to creat the default DOM elements which going to be visible to the user on loading.
