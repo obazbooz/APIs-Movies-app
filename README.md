@@ -10,3 +10,13 @@
 # Demo:
 * https://obazbooz.github.io/APIs-Movies-app/
 
+-------------------------------------------
+# How To Use:
+- It's easy application to use you can clone the repo to your device, then you can run the index.html file.
+- You can now use the application to search for informations like (Title, Release year, Movie type,Actors and more..) about movies and series even you can search for games.
+- To performe the search you can type the title that you want to lookf or in the search field.
+- After typing the you words you can see then a list of suggestions matching your searched keywords. 
+- Now you can get the detailed information by clicking on one of the results posters.
+
+-------------------------------------------
+# Structure:
