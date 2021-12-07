@@ -25,7 +25,7 @@
 public: Contains the images and the styling file
 
 src: Contains the javascript code splits into set of subfolders as following:
-----------------
+
 init: it contains initializer file which responsable to creat the default DOM elements which going to be visible to the user on loading.
 
 listeners: it contains moviesListeners file which trigger the fetching and populating functions in the view file.
