@@ -20,3 +20,27 @@
 
 -------------------------------------------
 # Structure:
+
+public
+└──imgs
+└──style.css
+src
+└──init
+   └──initializer.js
+└──listeners
+   └──moviesListeners.js
+└──util
+   └──fetchData.js
+   └──support.js
+└──views
+   └──views.js
+└──constants.js
+index.html
+
+public: Contains the images and the styling file
+src: Contains the javascript code splits into set of subfolders as following:
+└── init: it contains initializer file which responsable to creat the default DOM elements which going to be visible to the user on loading.
+└── listeners: it contains moviesListeners file which trigger the fetching and populating functions in the view file.
+└── util: it contains two files, fetchData file which responsable to fetch the API using axios. The other file support has a simple function support a sliding future in the project.
+└──views: Contains views file which responsable for creating and manipulating DOM elements accourding to the user interaction.
+└──index.html: It's the single webpage that we have to run the application.
