@@ -60,7 +60,7 @@ function moviesRender(Search, url) {
     if (element.Poster !== 'N/A') {
       moviePoster.src = element.Poster;
     } else {
-      moviePoster.src = '../public/imgs/keep-calm-poster-not-found.png';
+      moviePoster.src = './public/imgs/keep-calm-poster-not-found.png';
     }
     posterContainer.appendChild(moviePoster);
     const posterOverlay = document.createElement('div');
