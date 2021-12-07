@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 
+/* General styling */
+
 :root {
-  --mainRedColor: #e50914;
+  --mainColor: #dc1a28;
+  --secondColor: #303030;
+  --thirdColor: #757575;
+  --primeFontFamily: 'Rubik', sans-serif;
 }
 
 * {
@@ -9,25 +14,65 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--secondColor);
+}
 
-/*************** ADS styling section **********************/
+/*************** Landing styling section **********************/
 
 .imageBanner {
   background: url('../public/imgs/netflixa.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 50rem;
-  filter: blur(8px);
+  height: 55rem;
+  filter: blur(2px);
+}
 
-  /* position: absolute; */
+.landingImageShadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 55rem;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  opacity: 0.3;
+  z-index: 1;
 }
 
 .logoSection {
-  /* background-color: black; */
   padding: 20px;
   position: absolute;
   top: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoSection img {
+  width: 11.3rem;
+  margin-left: 1rem;
+  z-index: 2;
+}
+
+.logoSection button {
+  height: 40px;
+  width: 110px;
+  background-color: var(--mainColor);
+  color: white;
+  border: 2px solid var(--mainColor);
+  font-family: var(--primeFontFamily);
+  font-weight: 600;
+  border-radius: 5px;
+  z-index: 2;
 }
 .sliderSection {
   display: block;
@@ -38,13 +83,7 @@
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* background-color: black; */
-  /* background: url('../public/imgs/netflixa.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* filter: blur(8px);
-  -webkit-filter: blur(8px);
-  z-index: -5;*/
+  z-index: 2;
 }
 
 .slider {
@@ -65,7 +104,7 @@
   justify-content: center;
   width: fit-content;
   padding: 10px;
-  font-family: 'Rubik', sans-serif;
+  font-family: var(--primeFontFamily);
   font-weight: 600;
   font-size: 40px;
 }
@@ -84,13 +123,9 @@
   width: 20%;
   transition: 2s;
 }
-/* .movieHolderClass img {
-  width: 800px;
-  height: 500px;
-} */
 
-/* navigation styling */
-.naviMmanual {
+/* Manual navigation styling */
+.naviManual {
   position: absolute;
   width: 300px;
   margin-top: -100px;
@@ -99,7 +134,7 @@
 }
 
 .manualNaviBtn {
-  border: 2px solid var(--mainRedColor);
+  border: 2px solid var(--mainColor);
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
@@ -111,7 +146,7 @@
 }
 
 .manualNaviBtn:hover {
-  background-color: var(--mainRedColor);
+  background-color: var(--mainColor);
 }
 
 #radio1:checked ~ #first {
@@ -131,8 +166,8 @@
 #radio5:checked ~ #first {
   margin-left: -80%;
 }
-/* automatic navigation styling */
 
+/* automatic navigation styling */
 .autoNaviContainer {
   position: absolute;
   display: flex;
@@ -153,23 +188,289 @@
 }
 
 #radio1:checked ~ .autoNaviContainer .autoNavibtnOne {
-  background-color: red;
+  background-color: var(--mainColor);
 }
 
 #radio2:checked ~ .autoNaviContainer .autoNavibtnTwo {
-  background-color: red;
+  background-color: var(--mainColor);
 }
 
 #radio3:checked ~ .autoNaviContainer .autoNavibtnThree {
-  background-color: red;
+  background-color: var(--mainColor);
 }
 
 #radio4:checked ~ .autoNaviContainer .autoNavibtnFour {
-  background-color: red;
+  background-color: var(--mainColor);
 }
 
 #radio5:checked ~ .autoNaviContainer .autoNavibtnFive {
-  background-color: red;
+  background-color: var(--mainColor);
 }
 
-/*************** End ADS styling section **********************/
+/*************** End landing styling section **********************/
+
+/* ************* user search results Styling *************** */
+.userPanelSection {
+  background-color: black;
+  margin-bottom: -0.6rem;
+}
+.searchTitle {
+  color: white;
+  padding: 4rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 69%;
+  font-family: var(--primeFontFamily);
+}
+
+.searchHeader {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+  text-align: center;
+  font-family: var(--primeFontFamily);
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+.searchSubHeader {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.searchUserInput {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+.inputElement {
+  font-size: 16px;
+  padding: 10px 10px 0;
+  width: 30%;
+  border: solid 1px #8c8c8c;
+  border-radius: 2px;
+  display: block;
+  appearance: none;
+  color: #000;
+  margin-left: auto;
+  margin-right: auto;
+  height: 4rem;
+}
+
+.resultsContainer {
+  background-color: black;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 6rem;
+  margin: 6rem auto 1.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+.posterContainer {
+  position: relative;
+  margin: 1%;
+  box-shadow: 0 0 25px -5px var(--mainColor);
+}
+
+.posterContainer img {
+  height: 30rem;
+  width: 20rem;
+  display: block;
+}
+
+/* Poster overlay styling  */
+.posterOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30rem;
+  width: 20rem;
+  background: rgba(0, 0, 0, 0.891);
+  color: white;
+  font-family: var(--primeFontFamily);
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.posterOverlay > * {
+  transform: translateY(100px);
+  transition: transform 0.3s;
+}
+.posterOverlay:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.posterOverlay:hover > * {
+  transform: translateY(10px);
+}
+
+.movieName {
+  font-family: var(--primeFontFamily);
+  font-weight: 500;
+  font-size: 25px;
+  margin-top: 20px;
+  color: var(--mainColor);
+}
+.viewDetails {
+  font-family: var(--primeFontFamily);
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+/* Selected image styling */
+.chosenPosterContainer img {
+  margin-top: 10px;
+}
+
+#movieInfoContainer {
+  color: white;
+  position: relative;
+  height: fit-content;
+  width: 35%;
+}
+
+#movieInfoContainer div {
+  margin-bottom: 10px;
+}
+
+#movieInfoContainer h3 {
+  font-family: var(--primeFontFamily);
+  font-weight: 500;
+  color: var(--mainColor);
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+#movieInfoContainer h4 {
+  font-family: var(--primeFontFamily);
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline;
+}
+#movieInfoContainer label {
+  font-family: var(--primeFontFamily);
+  color: var(--thirdColor);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#movieInfoContainer p {
+  font-family: var(--primeFontFamily);
+  display: inline;
+  margin-left: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+#movieInfoContainer div label {
+  font-family: var(--primeFontFamily);
+}
+
+/* Results not found styling */
+.notFoundContainer {
+  position: relative;
+}
+.searchNotFoundImage {
+  width: 50px;
+  position: absolute;
+  left: 6rem;
+  top: -3rem;
+}
+.searchNotFoundTitle {
+  color: white;
+  font-family: var(--primeFontFamily);
+}
+
+/* ************* End user search results Styling *************** */
+
+/* ******************** Footer Styling ************************ */
+.footerSection {
+  background: black;
+  padding-top: 4rem;
+}
+
+.footerTop {
+  color: var(--thirdColor);
+  margin-bottom: 1.5rem;
+}
+.footerPhoneNum {
+  color: var(--thirdColor);
+  text-decoration: none;
+}
+.footerContent {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--primeFontFamily);
+  font-size: 1rem;
+  font-weight: 300;
+  background: black;
+}
+
+.footerLinksContainer {
+  display: flex;
+  list-style: none;
+  flex-flow: wrap;
+}
+.footerLink {
+  margin-right: 1.5rem;
+}
+
+.footerLink a {
+  text-decoration: none;
+  color: var(--thirdColor);
+}
+
+.footerCountry {
+  color: var(--thirdColor);
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* ******************** End footer Styling ************************ */
+
+/* ******************** Responsive Styling ************************ */
+@media screen and (max-width: 875px) {
+  .sliderTitle {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-top: 5px;
+  }
+  .searchHeader {
+    font-size: 1.8rem;
+  }
+  .searchSubHeader {
+    font-size: 0.9rem;
+  }
+  .inputElement {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sliderTitle {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+  .searchHeader {
+    font-size: 1.2rem;
+  }
+  .searchSubHeader {
+    font-size: 1rem;
+  }
+  .inputElement {
+    font-size: 0.5rem;
+  }
+}
