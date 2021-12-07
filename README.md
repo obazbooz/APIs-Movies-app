@@ -20,23 +20,6 @@
 
 -------------------------------------------
 # Structure:
-
-public
-└──imgs
-└──style.css
-src
-└──init
-   └──initializer.js
-└──listeners
-   └──moviesListeners.js
-└──util
-   └──fetchData.js
-   └──support.js
-└──views
-   └──views.js
-└──constants.js
-index.html
-
 ![Capture](https://user-images.githubusercontent.com/90429106/145100126-47caeaec-62d3-491e-b6d5-03d456d7c873.PNG)
 
 public: Contains the images and the styling file
