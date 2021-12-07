@@ -24,7 +24,7 @@ body {
 /*************** Landing styling section **********************/
 
 .imageBanner {
-  background: url('../public/imgs/netflixa.jpg');
+  background: url('./public/imgs/netflixa.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

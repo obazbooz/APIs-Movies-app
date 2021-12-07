@@ -219,7 +219,7 @@ function notFoundRender() {
   searchNotFoundTitle.setAttribute('class', 'searchNotFoundTitle');
   searchNotFoundImage.setAttribute('class', 'searchNotFoundImage');
   searchNotFoundTitle.innerText = 'Try again, no match found!';
-  searchNotFoundImage.src = '../public/imgs/attention-icon.png';
+  searchNotFoundImage.src = './public/imgs/attention-icon.png';
   notFoundContainer.appendChild(searchNotFoundImage);
   notFoundContainer.appendChild(searchNotFoundTitle);
   resultContainer.appendChild(notFoundContainer);
