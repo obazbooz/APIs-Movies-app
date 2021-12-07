@@ -28,8 +28,6 @@ body {
   background-position: center center;
   height: 55rem;
   filter: blur(2px);
-
-  /* position: absolute; */
 }
 
 .landingImageShadow {
@@ -44,13 +42,11 @@ body {
 }
 
 .logoSection {
-  /* background-color: black; */
   padding: 20px;
   position: absolute;
   top: 0;
   z-index: 2;
   width: 100%;
-  /* overflow: hidden; */
 }
 
 .logoContainer {
@@ -86,13 +82,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  /* background-color: black; */
-  /* background: url('../public/imgs/netflixa.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* filter: blur(8px);
-  -webkit-filter: blur(8px);
-  z-index: -5;*/
 }
 
 .slider {
@@ -132,10 +121,6 @@ body {
   width: 20%;
   transition: 2s;
 }
-/* .movieHolderClass img {
-  width: 800px;
-  height: 500px;
-} */
 
 /* navigation styling */
 .naviMmanual {
@@ -282,7 +267,6 @@ body {
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-content: space-around;
-  /* box-shadow: 0 0 10px 5px gray; */
 }
 
 .posterContainer {
@@ -329,8 +313,16 @@ body {
 }
 
 .movieName {
-  font-size: 1.5rem;
+  font-family: var(--primeFontFamily);
   font-weight: 500;
+  font-size: 25px;
+  margin-top: 20px;
+}
+.viewDetails {
+  font-family: var(--primeFontFamily);
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 20px;
 }
 
 /* Selected image styling */
@@ -343,7 +335,6 @@ body {
   position: relative;
   height: fit-content;
   width: 35%;
-  /* box-shadow: 0 0 25px -5px var(--mainColor); */
 }
 
 #movieInfoContainer div {
@@ -352,7 +343,6 @@ body {
 
 #movieInfoContainer h3 {
   font-family: var(--primeFontFamily);
-  /* font-size: 1rem; */
   font-weight: 500;
   color: var(--mainColor);
   font-size: 2rem;
@@ -389,9 +379,6 @@ body {
   position: relative;
 }
 .searchNotFoundImage {
-  /* width: 10%; */
-  /* margin-left: auto;
-  margin-right: auto; */
   width: 50px;
   position: absolute;
   left: 6rem;
@@ -400,9 +387,8 @@ body {
 .searchNotFoundTitle {
   color: white;
   font-family: var(--primeFontFamily);
-  /*width: 90%;
-  padding-left: 15rem; */
 }
+
 /* Footer styling */
 .footerSection {
   background: black;
@@ -429,8 +415,8 @@ body {
 
 .footerLinksContainer {
   display: flex;
-  flex-direction: row;
   list-style: none;
+  flex-flow: wrap;
 }
 .footerLink {
   margin-right: 1.5rem;
@@ -445,4 +431,37 @@ body {
   color: var(--thirdColor);
   margin-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 875px) {
+  .sliderTitle {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-top: 5px;
+  }
+  .searchHeader {
+    font-size: 1.8rem;
+  }
+  .searchSubHeader {
+    font-size: 0.9rem;
+  }
+  .inputElement {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sliderTitle {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+  .searchHeader {
+    font-size: 1.2rem;
+  }
+  .searchSubHeader {
+    font-size: 1rem;
+  }
+  .inputElement {
+    font-size: 0.5rem;
+  }
 }

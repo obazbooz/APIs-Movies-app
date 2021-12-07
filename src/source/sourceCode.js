@@ -94,7 +94,7 @@ function moviesRander(Search, url) {
     movieName.setAttribute('class', 'movieName');
     movieName.innerText = element.Title;
     const viewDetails = document.createElement('p');
-    viewDetails.setAttribute('class', 'movieYear');
+    viewDetails.setAttribute('class', 'viewDetails');
     viewDetails.innerText = 'Click for details';
     posterOverlay.appendChild(playIcon);
     posterOverlay.appendChild(movieName);
