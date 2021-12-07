@@ -1,9 +1,21 @@
 import { DomCreator } from '../init/AppInit.js';
 import { DomUserPanelCreator } from '../init/AppInit.js';
+import axios from 'https://cdn.skypack.dev/axios';
 
 function randomNumberGenerator(resultsSize) {
   return Math.floor(Math.random() * resultsSize);
 }
+
+// async function getUser() {
+//   try {
+//     const { data } = await axios.get(
+//       'http://www.omdbapi.com/?apikey=5f44eebe&s=friends',
+//     );
+//     console.log(data.Search);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 async function fetchMoviesData(url) {
   try {
@@ -100,14 +112,14 @@ async function movieRender(element, url) {
     const detailedResponse = await fetchMoviesData(moreInfoUrl);
     const resultContainer = document.querySelector('.resultsContainer');
     resultContainer.innerHTML = '';
-    const posterContainer = document.createElement('div');
-    posterContainer.setAttribute('class', 'posterContainer');
+    const chosenPosterContainer = document.createElement('div');
+    chosenPosterContainer.setAttribute('class', 'chosenPosterContainer');
     const chosenMoviePoster = document.createElement('img');
     chosenMoviePoster.setAttribute('class', 'moviePoster');
     chosenMoviePoster.src = detailedResponse.Poster;
     chosenMoviePoster.alt = 'Image not found!';
-    posterContainer.appendChild(chosenMoviePoster);
-    resultContainer.appendChild(posterContainer);
+    chosenPosterContainer.appendChild(chosenMoviePoster);
+    resultContainer.appendChild(chosenPosterContainer);
     // Movie information
     const movieInfoContainer = document.createElement('div');
     movieInfoContainer.setAttribute('id', 'movieInfoContainer');
@@ -249,6 +261,7 @@ export async function DomManipulater() {
     const { Search } = await fetchMoviesData(url);
     populateMoviesSliderImages(Search);
     fetchAndPopulateResults(urlApi);
+    // getUser();
   } catch (error) {
     console.log(error);
   }

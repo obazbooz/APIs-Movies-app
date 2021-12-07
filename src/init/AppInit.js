@@ -20,8 +20,12 @@ export const DomCreator = () => {
   //----------landing-image ------------
   const landingImgBanner = document.createElement('div');
   landingImgBanner.setAttribute('class', 'imageBanner');
-  landingImgBanner.textContent = 'test';
+  const landingImgShadowElement = document.createElement('div');
+  landingImgShadowElement.setAttribute('class', 'landingImageShadow');
+  // landingImgBanner.textContent = 'test';
   landing.appendChild(landingImgBanner);
+  landing.appendChild(landingImgShadowElement);
+
   //---------------------------
   document.body.appendChild(landing);
   landing.appendChild(logoSection);
@@ -29,6 +33,8 @@ export const DomCreator = () => {
 
   //--------------------Logo-----------
 
+  const logoContainer = document.createElement('div');
+  logoContainer.setAttribute('class', 'logoContainer');
   const logoImage = document.createElement('img');
   const searchButton = document.createElement('button');
   const buttonAnchor = document.createElement('a');
@@ -39,8 +45,9 @@ export const DomCreator = () => {
   buttonAnchor.href = '#SEARCH_USER_INPUT_ID';
   searchButton.href = '#SEARCH_USER_INPUT_ID';
   buttonAnchor.appendChild(searchButton);
-  logoSection.appendChild(logoImage);
-  logoSection.appendChild(buttonAnchor);
+  logoContainer.appendChild(logoImage);
+  logoContainer.appendChild(buttonAnchor);
+  logoSection.appendChild(logoContainer);
 
   //-------------------Movies Slider---------------------
   const sliderContainer = document.createElement('div');
