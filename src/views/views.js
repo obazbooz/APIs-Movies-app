@@ -1,17 +1,5 @@
 import { autoSliderFunc } from '../util/support.js';
-
-// Function to fetch API response
-async function fetchMoviesData(url) {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error('Request field!');
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { fetchMoviesData } from '../util/fetchData.js';
 
 // Function using "fetchMoviesData" to fetch and populate movie slider elements
 export async function fetchAndPopulateMoviesSliderImages(apiUrl) {
