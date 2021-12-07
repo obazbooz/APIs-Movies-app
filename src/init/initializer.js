@@ -1,38 +1,35 @@
-import { DomManipulater } from '../source/sourceCode.js';
+import { fetchAndPopulationTrigger } from '../listeners/moviesListeners.js';
 
+// Function to call the sections functions creators and to trigger the fetching and manipulating functions in views file
 const initializeApp = () => {
-  DomCreator();
+  DomLandingCreator();
   DomUserPanelCreator();
   DomFooterCreator();
-  DomManipulater();
+  fetchAndPopulationTrigger();
 };
 
-export const DomCreator = () => {
-  //------------------Sections create --------------------
+// Function to create the DOM elements for landing section
+export const DomLandingCreator = () => {
+  //------------------Landing create --------------------
   const landing = document.createElement('section');
   const logoSection = document.createElement('section');
   const movieSliderSection = document.createElement('section');
-  //-----------------
   landing.setAttribute('class', 'landingBanner');
   logoSection.setAttribute('class', 'logoSection');
   movieSliderSection.setAttribute('class', 'sliderSection');
-  //-----------------
+  document.body.appendChild(landing);
+
   //----------landing-image ------------
   const landingImgBanner = document.createElement('div');
   landingImgBanner.setAttribute('class', 'imageBanner');
   const landingImgShadowElement = document.createElement('div');
   landingImgShadowElement.setAttribute('class', 'landingImageShadow');
-  // landingImgBanner.textContent = 'test';
   landing.appendChild(landingImgBanner);
   landing.appendChild(landingImgShadowElement);
-
-  //---------------------------
-  document.body.appendChild(landing);
   landing.appendChild(logoSection);
   landing.appendChild(movieSliderSection);
 
   //--------------------Logo-----------
-
   const logoContainer = document.createElement('div');
   logoContainer.setAttribute('class', 'logoContainer');
   const logoImage = document.createElement('img');
@@ -54,10 +51,10 @@ export const DomCreator = () => {
   const sliderTitle = document.createElement('h3');
   sliderTitle.setAttribute('class', 'sliderTitle');
   sliderTitle.textContent = 'Exclusive on NETFOX';
-  movieSliderSection.appendChild(sliderTitle);
   sliderContainer.setAttribute('class', 'slider');
   const slidesContainer = document.createElement('div');
   slidesContainer.setAttribute('class', 'slides');
+  movieSliderSection.appendChild(sliderTitle);
   sliderContainer.appendChild(slidesContainer);
   movieSliderSection.appendChild(sliderContainer);
 
@@ -129,8 +126,8 @@ export const DomCreator = () => {
   slidesContainer.appendChild(movieThreeHolder);
   slidesContainer.appendChild(movieFourHolder);
   slidesContainer.appendChild(movieFiveHolder);
-  //-------------------Auto Navigation--------------------
 
+  //-------------------Auto Navigation--------------------
   const autoNaviContainer = document.createElement('div');
   autoNaviContainer.setAttribute('class', 'autoNavi');
   const autoNaviFirstDivElement = document.createElement('div');
@@ -150,9 +147,9 @@ export const DomCreator = () => {
   autoNaviContainer.appendChild(autoNaviFifthDivElement);
   sliderContainer.appendChild(autoNaviContainer);
 
-  //-------manualnavigation ------------------
+  //--------------manualNavigation ------------------
   const manualNaviContainer = document.createElement('div');
-  manualNaviContainer.setAttribute('class', 'naviMmanual');
+  manualNaviContainer.setAttribute('class', 'naviManual');
   sliderContainer.appendChild(manualNaviContainer);
   const label1 = document.createElement('label');
   const label2 = document.createElement('label');
@@ -177,58 +174,59 @@ export const DomCreator = () => {
   manualNaviContainer.appendChild(label5);
 };
 
+// Function to create the DOM elements for User panel section
 export const DomUserPanelCreator = () => {
+  // *********User Panel and container *******************/
   const userPanelSection = document.createElement('section');
   userPanelSection.setAttribute('class', 'userPanelSection');
-  document.body.appendChild(userPanelSection);
-  //*********************************************** */
   const searchContainer = document.createElement('div');
   searchContainer.setAttribute('class', 'searchContainer');
-  userPanelSection.appendChild(searchContainer);
-
   const resultsContainer = document.createElement('div');
   resultsContainer.setAttribute('class', 'resultsContainer');
+
+  userPanelSection.appendChild(searchContainer);
   userPanelSection.appendChild(resultsContainer);
-  //************************************************************ */
+  document.body.appendChild(userPanelSection);
+
+  //**************Search Title********************* */
   const searchTitle = document.createElement('div');
   searchTitle.setAttribute('class', 'searchTitle');
   const searchTitleHeader = document.createElement('h1');
   searchTitleHeader.setAttribute('class', 'searchHeader');
   searchTitleHeader.innerText =
-    'Unlimited movies,series and games to know about';
+    'Unlimited movies, series and games to know about';
   const searchTitleSubHeader = document.createElement('h2');
   searchTitleSubHeader.setAttribute('class', 'searchSubHeader');
   searchTitleSubHeader.innerText = 'Search your passion now';
+
   searchTitle.appendChild(searchTitleHeader);
   searchTitle.appendChild(searchTitleSubHeader);
   searchContainer.appendChild(searchTitle);
-  //******************************************* */
+
+  //****************Search Input***************** */
   const searchUserInput = document.createElement('div');
   searchUserInput.setAttribute('class', 'searchUserInput');
   searchUserInput.setAttribute('id', 'SEARCH_USER_INPUT_ID');
-  searchContainer.appendChild(searchUserInput);
-
   const inputElement = document.createElement('input');
   inputElement.setAttribute('class', 'inputElement');
   inputElement.setAttribute('id', 'INPUT_ID');
   inputElement.placeholder = 'Type your search here';
-  searchUserInput.appendChild(inputElement);
 
-  // const showResultBtn = document.createElement('button');
-  // showResultBtn.setAttribute('class', 'showResultBtn');
-  // showResultBtn.textContent = 'Show movies';
-  // searchUserInput.appendChild(showResultBtn);
+  searchUserInput.appendChild(inputElement);
+  searchContainer.appendChild(searchUserInput);
 };
 
+// Function to create the DOM elements for User footer section
 const DomFooterCreator = () => {
   //****************************** */
   const footerSection = document.createElement('section');
   footerSection.setAttribute('class', 'footerSection');
-  document.body.appendChild(footerSection);
-
   const footerContent = document.createElement('div');
   footerContent.setAttribute('class', 'footerContent');
+
   footerSection.appendChild(footerContent);
+  document.body.appendChild(footerSection);
+
   //******************************* */
   const footerTop = document.createElement('p');
   footerTop.setAttribute('class', 'footerTop');

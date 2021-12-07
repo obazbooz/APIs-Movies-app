@@ -1,22 +1,6 @@
-import { DomCreator } from '../init/AppInit.js';
-import { DomUserPanelCreator } from '../init/AppInit.js';
-import axios from 'https://cdn.skypack.dev/axios';
+import { autoSliderFunc } from '../util/support.js';
 
-function randomNumberGenerator(resultsSize) {
-  return Math.floor(Math.random() * resultsSize);
-}
-
-// async function getUser() {
-//   try {
-//     const { data } = await axios.get(
-//       'http://www.omdbapi.com/?apikey=5f44eebe&s=friends',
-//     );
-//     console.log(data.Search);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
+// Function to fetch API response
 async function fetchMoviesData(url) {
   try {
     const response = await fetch(url);
@@ -29,24 +13,30 @@ async function fetchMoviesData(url) {
   }
 }
 
-async function populateMoviesSliderImages(results) {
-  // const randomMovieId = randomNumberGenerator(results.length);
+// Function using "fetchMoviesData" to fetch and populate movie slider elements
+export async function fetchAndPopulateMoviesSliderImages(apiUrl) {
+  try {
+    const url = `${apiUrl}&s=friends`;
+    const { Search } = await fetchMoviesData(url);
 
-  const img1 = document.getElementById('imageOneId');
-  const img2 = document.getElementById('imageTwoId');
-  const img3 = document.getElementById('imageThreeId');
-  const img4 = document.getElementById('imageFourId');
-  const img5 = document.getElementById('imageFiveId');
+    const img1 = document.getElementById('imageOneId');
+    const img2 = document.getElementById('imageTwoId');
+    const img3 = document.getElementById('imageThreeId');
+    const img4 = document.getElementById('imageFourId');
+    const img5 = document.getElementById('imageFiveId');
 
-  img1.src = results[1].Poster;
-  img2.src = results[2].Poster;
-  img3.src = results[3].Poster;
-  img4.src = results[4].Poster;
-  img5.src = results[5].Poster;
-  autoSliderFunc();
+    img1.src = Search[1].Poster;
+    img2.src = Search[2].Poster;
+    img3.src = Search[3].Poster;
+    img4.src = Search[4].Poster;
+    img5.src = Search[5].Poster;
+    autoSliderFunc();
+  } catch (error) {}
 }
 
-async function fetchAndPopulateResults(url) {
+// Function using "fetchMoviesData" to fetch API according to user input
+//and populate user search results elements by calling "moviesRender" function
+export async function fetchAndPopulateResults(url) {
   try {
     const inputElement = document.querySelector('.inputElement');
     let searchTimeoutToken = 0;
@@ -57,9 +47,9 @@ async function fetchAndPopulateResults(url) {
         const responseData = await fetchMoviesData(inputURL);
         if (responseData.Response === 'True') {
           const { Search } = responseData;
-          moviesRander(Search, url);
+          moviesRender(Search, url);
         } else {
-          searchNotFound();
+          notFoundRender();
           console.log('No response from API');
         }
       }, 400);
@@ -69,7 +59,8 @@ async function fetchAndPopulateResults(url) {
   }
 }
 
-function moviesRander(Search, url) {
+// Function tp populate and manipulate the DOM user search elements
+function moviesRender(Search, url) {
   const resultContainer = document.querySelector('.resultsContainer');
   resultContainer.innerHTML = '';
   Search.forEach((element) => {
@@ -87,16 +78,13 @@ function moviesRander(Search, url) {
     const posterOverlay = document.createElement('div');
     posterOverlay.setAttribute('class', 'posterOverlay');
     posterContainer.appendChild(posterOverlay);
-    const playIcon = document.createElement('i');
-    playIcon.setAttribute('class', 'fa fa-play-circle-o');
-    playIcon.setAttribute('style', 'font-size:36px;');
     const movieName = document.createElement('h4');
     movieName.setAttribute('class', 'movieName');
     movieName.innerText = element.Title;
     const viewDetails = document.createElement('p');
     viewDetails.setAttribute('class', 'viewDetails');
     viewDetails.innerText = 'Click for details';
-    posterOverlay.appendChild(playIcon);
+
     posterOverlay.appendChild(movieName);
     posterOverlay.appendChild(viewDetails);
     resultContainer.appendChild(posterContainer);
@@ -106,6 +94,7 @@ function moviesRander(Search, url) {
   });
 }
 
+// Function to populate and manipulate the DOM selected result element
 async function movieRender(element, url) {
   const moreInfoUrl = `${url}&i=${element.imdbID}`;
   try {
@@ -116,15 +105,19 @@ async function movieRender(element, url) {
     chosenPosterContainer.setAttribute('class', 'chosenPosterContainer');
     const chosenMoviePoster = document.createElement('img');
     chosenMoviePoster.setAttribute('class', 'moviePoster');
-    chosenMoviePoster.src = detailedResponse.Poster;
+    if (element.Poster !== 'N/A') {
+      chosenMoviePoster.src = element.Poster;
+    } else {
+      chosenMoviePoster.src = '../public/imgs/keep-calm-poster-not-found.png';
+    }
     chosenMoviePoster.alt = 'Image not found!';
     chosenPosterContainer.appendChild(chosenMoviePoster);
     resultContainer.appendChild(chosenPosterContainer);
-    // Movie information
+
+    //********movie info container content ***************/
     const movieInfoContainer = document.createElement('div');
     movieInfoContainer.setAttribute('id', 'movieInfoContainer');
     resultContainer.appendChild(movieInfoContainer);
-    //********movie info container content */
 
     const movieTitleHolder = document.createElement('div');
     movieTitleHolder.setAttribute('class', 'movieTitle');
@@ -227,7 +220,8 @@ async function movieRender(element, url) {
   }
 }
 
-function searchNotFound() {
+// Function to populate not found DOM elements
+function notFoundRender() {
   const resultContainer = document.querySelector('.resultsContainer');
   const notFoundContainer = document.createElement('div');
   notFoundContainer.setAttribute('class', 'notFoundContainer');
@@ -241,28 +235,4 @@ function searchNotFound() {
   notFoundContainer.appendChild(searchNotFoundImage);
   notFoundContainer.appendChild(searchNotFoundTitle);
   resultContainer.appendChild(notFoundContainer);
-}
-
-function autoSliderFunc() {
-  let counter = 1;
-  setInterval(() => {
-    document.getElementById('radio' + counter).checked = true;
-    counter++;
-    if (counter > 5) {
-      counter = 1;
-    }
-  }, 3000);
-}
-
-export async function DomManipulater() {
-  try {
-    const urlApi = 'http://www.omdbapi.com/?apikey=5f44eebe';
-    const url = `${urlApi}&s=boys`;
-    const { Search } = await fetchMoviesData(url);
-    populateMoviesSliderImages(Search);
-    fetchAndPopulateResults(urlApi);
-    // getUser();
-  } catch (error) {
-    console.log(error);
-  }
 }

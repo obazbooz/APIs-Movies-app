@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 
+/* General styling */
+
 :root {
   --mainColor: #dc1a28;
   --secondColor: #303030;
@@ -19,7 +21,7 @@ body {
   background-color: var(--secondColor);
 }
 
-/*************** ADS styling section **********************/
+/*************** Landing styling section **********************/
 
 .imageBanner {
   background: url('../public/imgs/netflixa.jpg');
@@ -122,8 +124,8 @@ body {
   transition: 2s;
 }
 
-/* navigation styling */
-.naviMmanual {
+/* Manual navigation styling */
+.naviManual {
   position: absolute;
   width: 300px;
   margin-top: -100px;
@@ -164,8 +166,8 @@ body {
 #radio5:checked ~ #first {
   margin-left: -80%;
 }
-/* automatic navigation styling */
 
+/* automatic navigation styling */
 .autoNaviContainer {
   position: absolute;
   display: flex;
@@ -205,9 +207,9 @@ body {
   background-color: var(--mainColor);
 }
 
-/*************** End ADS styling section **********************/
+/*************** End landing styling section **********************/
 
-/* ************* Results Styling *************** */
+/* ************* user search results Styling *************** */
 .userPanelSection {
   background-color: black;
   margin-bottom: -0.6rem;
@@ -281,6 +283,7 @@ body {
   display: block;
 }
 
+/* Poster overlay styling  */
 .posterOverlay {
   position: absolute;
   top: 0;
@@ -317,6 +320,7 @@ body {
   font-weight: 500;
   font-size: 25px;
   margin-top: 20px;
+  color: var(--mainColor);
 }
 .viewDetails {
   font-family: var(--primeFontFamily);
@@ -374,7 +378,7 @@ body {
   font-family: var(--primeFontFamily);
 }
 
-/* results not found styling */
+/* Results not found styling */
 .notFoundContainer {
   position: relative;
 }
@@ -389,7 +393,9 @@ body {
   font-family: var(--primeFontFamily);
 }
 
-/* Footer styling */
+/* ************* End user search results Styling *************** */
+
+/* ******************** Footer Styling ************************ */
 .footerSection {
   background: black;
   padding-top: 4rem;
@@ -433,6 +439,9 @@ body {
   padding-bottom: 1.5rem;
 }
 
+/* ******************** End footer Styling ************************ */
+
+/* ******************** Responsive Styling ************************ */
 @media screen and (max-width: 875px) {
   .sliderTitle {
     font-size: 1.5rem;
