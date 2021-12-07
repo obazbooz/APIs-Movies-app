@@ -35,5 +35,6 @@ util: it contains two files, fetchData file which responsable to fetch the API u
 views: Contains views file which responsable for creating and manipulating DOM elements accourding to the user interaction.
 
 index.html: It's the single webpage that we have to run the application.
-----------------------------------------------------------------------------
+
+----------------------------------
 Enjoy it :)
