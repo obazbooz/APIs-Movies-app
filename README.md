@@ -11,6 +11,10 @@
 * https://obazbooz.github.io/NETFOX-application/
 
 -------------------------------------------
+# Used API:
+* https://www.omdbapi.com/
+
+-------------------------------------------
 # How To Use:
 - It's easy application to use you can clone the repo to your device, then you can run the index.html file.
 - You can now use the application to search for informations like (Title, Release year, Movie type,Actors and more..) about movies and series even you can search for games.
