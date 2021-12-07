@@ -1,3 +1,4 @@
+// Function to change the poster slider automatically
 export function autoSliderFunc() {
   let counter = 1;
   setInterval(() => {
